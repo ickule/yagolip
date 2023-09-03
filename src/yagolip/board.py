@@ -5,6 +5,14 @@ from typing import Self
 from cell import Cell, State
 
 
+class CellPositionError(Exception):
+    def __init__(self: Self, x: int, y: int) -> None:
+        super().__init__(
+            f"The cell located at ({x},{y}) is in an unhandled position. "
+            "We cannot count its neighbours",
+        )
+
+
 def count_alive_cells(*args: Cell) -> int:
     result = 0
     for arg in args:
@@ -98,7 +106,7 @@ class Board:
                 reference[x][y - 1],
             )
         else:
-            neighbours = -1  # we cannot get here as all cases have been tested
+            raise CellPositionError(x, y)
         return neighbours
 
     @classmethod
