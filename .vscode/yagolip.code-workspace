@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"terminal.integrated.env.linux": {
+			"PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}/tests:$PYTHONPATH"
+		},
+		"python.terminal.activateEnvInCurrentTerminal": true,
+		"python.envFile": "${workspaceFolder}/.env",
+		"black-formatter.importStrategy": "fromEnvironment",
+		"black-formatter.args": [
+			"--line-length",
+			"100",
+		],
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter",
+			"editor.codeActionsOnSave": {
+				"source.fixAll": true,
+				"source.organizeImports": true
+			},
+			"editor.rulers": [
+				100
+			]
+		},
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"robocorp.robotframework-lsp",
+			"davidanson.vscode-markdownlint",
+			"yzhang.markdown-all-in-one",
+			"ms-python.black-formatter",
+			"tamasfe.even-better-toml",
+			"charliermarsh.ruff"
+		]
+	}
+}

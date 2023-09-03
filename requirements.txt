@@ -1,0 +1,19 @@
+# Essential
+pip
+wheel
+setuptools
+
+# Linting
+ruff
+
+# Formatting
+black
+
+# Test
+robotframework
+robotframework-robocop
+
+# VSCode data viewver
+pandas
+
+# Project
