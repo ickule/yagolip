@@ -2,9 +2,9 @@ from enum import Enum
 from typing import Self
 
 
-class State(int, Enum):
-    ALIVE = 1
-    DEAD = 0
+class State(Enum):
+    ALIVE = True
+    DEAD = False
 
 
 class Cell:

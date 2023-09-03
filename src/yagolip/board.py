@@ -8,7 +8,7 @@ from cell import Cell, State
 def count_alive_cells(*args: Cell) -> int:
     result = 0
     for arg in args:
-        result += arg.get_state()
+        result += 1 if arg.get_state() == State.ALIVE else 0
     return result
 
 
@@ -115,10 +115,10 @@ class Board:
         for x in range(self.width):
             for y in range(self.height):
                 neighbours = self._count_neighbours(x, y, reference)
-                if self.cells[x][y].get_state() == State.ALIVE.value and neighbours not in (2, 3):
+                if self.cells[x][y].get_state() == State.ALIVE and neighbours not in (2, 3):
                     self.cells[x][y].set_state(State.DEAD)
                 elif (
-                    self.cells[x][y].get_state() == State.DEAD.value
+                    self.cells[x][y].get_state() == State.DEAD
                     and neighbours == 3  # noqa: PLR2004 This value is defined by the rules
                 ):
                     self.cells[x][y].set_state(State.ALIVE)
