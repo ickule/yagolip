@@ -6,9 +6,9 @@ This repo hosts a small command line based [Game of Life](https://en.wikipedia.o
 
 ## Requirements
 
-This programm has been tested on debian bookworm using the build in Python 3.11.2 64 bit.
+This program has been tested on Debian 12 "Bookworm" using the built-in Python 3.11.2 64 bit.
 
-You can install the necessay packages with :
+You can install the necessary packages with :
 
 ```sh
 sudo apt update
@@ -28,7 +28,7 @@ python3 -m venv .venv
 You can now activate your virtual environment with:
 
 ```sh
-source .venv\bin\activate
+source .venv/bin/activate
 ```
 
 If you are using other shells, please use the apropriate activate file (like `activate.fish` or `activate.csh`)
@@ -37,13 +37,13 @@ Once activated, a virtual environment can be deactivated with the `deactivate` c
 
 ### Installing dependencies
 
-To install all Python dependencies, upgrade pip and install the modules from the requirement file, you can do so all in one with teh following command:
+To install all Python dependencies, upgrade pip and install the modules from the requirement file, you can do so all in one with the following command:
 
 ```sh
 python3 -m pip install -U -r requirements.txt
 ```
 
-### Extending PYTHONPATH environment variable
+### Extending the PYTHONPATH environment variable
 
 Extend your PYTHONPATH environment variable to include the workspace src folder before running the project or its tests with the following:
 
@@ -51,7 +51,7 @@ Extend your PYTHONPATH environment variable to include the workspace src folder 
 PYTHONPATH=./src:./tests:$PYTHONPATH
 ```
 
-If you are using VSCode, the `.vscoode/yagolip.code-workspace` already contains settings to automatically extend this variable.
+If you are using VSCode, the `.vscode/yagolip.code-workspace` already contains settings to automatically extend this variable.
 
 You can now run this program.
 
@@ -60,7 +60,7 @@ You can now run this program.
 You can run the program with the following:
 
 ```sh
-python src/yagolip
+python3 src/yagolip
 ```
 
 ## Contributing
