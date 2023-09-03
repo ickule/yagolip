@@ -5,7 +5,7 @@ from typing import Self
 from cell import Cell, State
 
 
-def add_cells(*args: Cell) -> int:
+def count_alive_cells(*args: Cell) -> int:
     result = 0
     for arg in args:
         result += arg.get_state()
@@ -22,7 +22,7 @@ class Board:
         result = ""
         for x in range(self.width):
             for y in range(self.height):
-                if self.cells[x][y].get_state() == State.ALIVE.value:
+                if self.cells[x][y].get_state().value:
                     result += " * "
                 else:
                     result += "   "
@@ -31,13 +31,13 @@ class Board:
 
     def _count_neighbours(self: Self, x: int, y: int, reference: list[list[Cell]]) -> int:
         if x == 0 and y == 0:
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x][y + 1],
                 reference[x + 1][y],
                 reference[x + 1][y + 1],
             )
         elif x == 0 and 0 < y < (self.height - 1):
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x][y - 1],
                 reference[x][y + 1],
                 reference[x + 1][y - 1],
@@ -45,13 +45,13 @@ class Board:
                 reference[x + 1][y + 1],
             )
         elif x == 0 and y == (self.height - 1):
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x][y - 1],
                 reference[x + 1][y - 1],
                 reference[x + 1][y],
             )
         elif 0 < x < (self.width - 1) and y == 0:
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x - 1][y],
                 reference[x - 1][y + 1],
                 reference[x][y + 1],
@@ -59,7 +59,7 @@ class Board:
                 reference[x + 1][y + 1],
             )
         elif 0 < x < (self.width - 1) and 0 < y < (self.height - 1):
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x - 1][y - 1],
                 reference[x - 1][y],
                 reference[x - 1][y + 1],
@@ -70,7 +70,7 @@ class Board:
                 reference[x + 1][y + 1],
             )
         elif 0 < x < (self.width - 1) and y == (self.height - 1):
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x - 1][y - 1],
                 reference[x - 1][y],
                 reference[x][y - 1],
@@ -78,13 +78,13 @@ class Board:
                 reference[x + 1][y],
             )
         elif x == (self.width - 1) and y == 0:
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x - 1][y],
                 reference[x - 1][y + 1],
                 reference[x][y + 1],
             )
         elif x == (self.width - 1) and 0 < y < (self.height - 1):
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x - 1][y - 1],
                 reference[x - 1][y],
                 reference[x - 1][y + 1],
@@ -92,7 +92,7 @@ class Board:
                 reference[x][y + 1],
             )
         elif x == (self.width - 1) and y == (self.height - 1):
-            neighbours = add_cells(
+            neighbours = count_alive_cells(
                 reference[x - 1][y - 1],
                 reference[x - 1][y],
                 reference[x][y - 1],
