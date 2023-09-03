@@ -1,0 +1,13 @@
+name: formatting
+run-name: Formatting Python code with balck
+on: [push]
+jobs:
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - run: pip install -U -r requirements.txt
+      - run: black .
